@@ -61,7 +61,7 @@ bool descartes_opw_model::OPWMoveitStateAdapter::getAllIK(const Eigen::Affine3d 
   Eigen::Affine3d tool_pose = world_to_base_.frame_inv * pose * tool0_to_tip_.frame;
 
   std::array<double, 6*8> sols;
-  opw_kinematics::inverse(kin_params_, tool_pose, sols.data());
+  opw_kinematics::inverse(kin_params_, Eigen::Isometry3d(tool_pose.matrix()), sols.data());
 
   // Check the output
   std::vector<double> tmp (7, 0.0); // temporary storage for API reasons
