@@ -4,9 +4,10 @@ project(descartes_opw_model)
 add_compile_options(-std=c++11 -Wall -Wextra)
 
 find_package(catkin REQUIRED COMPONENTS
-  descartes_moveit
-  opw_kinematics
+  descartes_moveit  
 )
+
+find_package(opw_kinematics)
 
 catkin_package(
   INCLUDE_DIRS
@@ -14,8 +15,7 @@ catkin_package(
   LIBRARIES
     ${PROJECT_NAME}
   CATKIN_DEPENDS
-    descartes_moveit
-    opw_kinematics
+    descartes_moveit    
 )
 
 ###########
@@ -25,6 +25,7 @@ catkin_package(
 include_directories(
   include
   ${catkin_INCLUDE_DIRS}
+  ${opw_kinematics_INCLUDE_DIRS}
 )
 
 add_library(${PROJECT_NAME}
