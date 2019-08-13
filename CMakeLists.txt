@@ -12,6 +12,7 @@ find_package(opw_kinematics)
 catkin_package(
   INCLUDE_DIRS
     include
+    ${opw_kinematics_INCLUDE_DIRS}
   LIBRARIES
     ${PROJECT_NAME}
   CATKIN_DEPENDS
